@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funkshin - Events</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <%= csrf_meta_tags %>
+  <!-- Main css styles -->
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <!-- Main javascript files -->
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true		%>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+<body>
+  <!--top-bar start here-->
+  <%= render 'layouts/top_bar_landing_page'%>
+  <!--top-bar end here-->
+
+  <!-- top navigation start here -->
+  <%= render 'layouts/top_landing_navigation'%>
+  <!-- top navigation end here -->
+
+  <!--breadcrumbs start-->
+  <%= render 'layouts/breadcrumb_nav'%>
+  <!--breadcrumbs end-->
+
+  <div class="divide80"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-2">
+        <div class="login-form">
+          <h3>Sign In</h3>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="divide60"></div>
+  <!--footer start-->
+  <%= render 'layouts/footer'%>
+  <!--footer end-->
+</body>
+</html>

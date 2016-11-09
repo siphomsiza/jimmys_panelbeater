@@ -1,0 +1,46 @@
+<% provide(:title, "Documents") %>
+
+<div class="row">
+  <div class="col-xs-14">
+    <div class="row">
+      <div class="col-md-12">
+        <%= link_to raw('<span class="glyphicon glyphicon-th"></span> List Categories'),  documents_categories_path(), class: 'btn btn-default ' %>
+        <%= link_to raw('<span class="glyphicon glyphicon-th"></span> List Sub Categories'),  documents_categories_path(parent_category: @parent_category.parent_category), class: 'btn btn-default' %>
+        <%= link_to raw('<i class="fa fa-plus-square"></i> Create Documents'), new_documents_category_document_path(@parent_category), class: 'btn btn-default' %>
+      </div>
+    </div>
+    <br/>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong><span class="glyphicon glyphicon-th"></span> Documents for <%=@parent_category.name %> folder </strong>
+      </div>
+      <table class="table">
+        <thead>
+          <th>#</th>
+          <th>Name</th>
+          <th>Categories Name</th>
+          <th>File</th>
+          <th>&nbsp;</th>
+        </thead>
+        <tbody>
+          <% @documents_documents.each_with_index do |document, index| %>
+          <tr>
+            <td><%= "#{index + 1}" %></td>
+            <td>
+              <%= link_to "#{document.name}",  documents_category_document_path(@parent_category,document) %>
+            </td>
+            <td><%= document.category %></td>
+            <td><%= document.file.file.filename %></td>
+            <td align="right">
+              <%=link_to raw('<span class="glyphicon glyphicon-eye-open"></span>'), documents_category_document_path(@parent_category,document), class: 'btn btn-success' %>
+              <%=link_to raw('<span class="glyphicon glyphicon-pencil"></span>'), edit_documents_category_document_path(@parent_category,document), class: 'btn btn-primary' %>
+              <%=link_to raw('<span class="glyphicon glyphicon-trash"></span>'), documents_category_document_path(@parent_category,document), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+              <%= link_to raw('<span class="glyphicon glyphicon-download"></span> Download'), document.file.url, class: 'btn btn-success' %>
+            </td>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>

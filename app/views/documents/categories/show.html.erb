@@ -1,0 +1,85 @@
+<% provide :rl do %>
+  <%= link_to raw("<i class='fa fa-pencil'></i> Edit"), edit_documents_category_path(@documents_category), class: 'btn btn-sm btn-success' if current_user == @documents_category.user || current_user.role_at_least?("Franchisee") %>
+  <%= link_to raw("<i class='glyphicon glyphicon-trash'></i> Delete"), documents_category_path(@documents_category), method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-sm btn-danger' if current_user == @documents_category.user || current_user.role_at_least?("Franchisee") %>
+<% end %>
+
+<div class="row">
+  <div class="col-md-14 ui-sortable">
+    <h4 class="header-h"><%= tree_breadcrumbs(@documents_category).join("").html_safe %></h4>
+    <div class="panel panel-inverse">
+      <div class="panel-heading">
+        <div class="panel-heading-btn">
+        </div>
+        <h1 class="panel-title"><i class="fa fa-child"></i> Sub Categories & Documents</h1>
+      </div>
+      <div class="panel-body">
+          <fieldset>
+            <legend class="width-full">
+              <div class="row">
+                <div class="col-xs-10">
+                  Sub Categories
+                </div>
+                <div class="col-md-2 ui-sortable pull-right">
+                  <div class="form-group">
+                    <%= link_to raw("<i class='fa fa-plus-square'></i> New"), new_documents_category_path(category_id: @documents_category), class: 'btn btn-sm btn-success' %>
+                  </div>
+                </div>
+              </div>
+            </legend>
+            <% @documents_category.children_categories.each_with_index do |documents_category, index|%>
+              <%= render "category", :documents_category => documents_category %>
+            <%end%>
+            <% unless @documents_category.children_categories.present? %>
+              <center>No categories<center>
+            <% end %>
+          </fieldset>
+          <br/><br/>
+          <fieldset>
+            <legend class="width-full">
+              <div class="row">
+                <div class="col-xs-10">
+                  Documents
+                </div>
+
+                <div class="col-xs-5 ui-sortable pull-right" style="padding-bottom: 10px;padding-right: 95px;">
+                  <%= link_to raw("<i class='fa fa-pencil-square'></i> Edit Documents"), edit_documents_category_document_path(category_id: @documents_category,id: @documents_category.documents.first),style: "margin-left: 50px;" ,class: 'pull-right btn btn-sm btn-primary' if @documents_category.documents.any?%>
+                  <%= link_to raw("<i class='fa fa-plus-square'></i> New"), new_documents_category_document_path(category_id: @documents_category), class: 'btn btn-sm btn-success pull-right' %>
+                </div>
+
+              </div>
+            </legend>
+            <table class="table table-striped">
+              <tbody>
+                <% @documents_category.documents.each do |document| %>
+                  <tr class="template-download fade in">
+                    <td width="200px;" class="preview">
+                      <a  rel="gallery" title="<%= document.name %>" href="<%= document.try(:file).try(:url) %>">
+                        <%if document.is_image %>
+                          <i class="fa fa-image fa-2x"></i>
+                        <%else%>
+                          <i class="fa fa-file fa-2x"></i>
+                        <%end%>
+                        &nbsp; <%= document.try(:file).try(:file).try(:original_filename) %>
+                      </a>
+                    </td>
+                    <td width="317px;" class="size"><span><%= number_to_human_size(document.try(:file).try(:size), precision: 5) %></span></td>
+                    <td width="243px;" align="right" class="delete">
+                      <a class="btn btn-xs  btn-default" target="_blank" download="<%= document.try(:file).try(:file).try(:original_filename) %>" rel="gallery" title="<%= document.name %>" href="<%= document.file.url%>">
+                        <i class="glyphicon glyphicon-download"></i>
+                        <span>Download</span>
+                      </a>
+                      <%=link_to raw('<i class="glyphicon glyphicon-trash"></i>') + "Delete", documents_category_document_path(document.category_id,document,:sub_category=> true), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs  btn-danger' if current_user == document.user %>
+                    </td>
+                  </tr>
+                <%end%>
+              </tbody>
+            </table>
+            <% unless @documents_category.documents.present? %>
+            <center>No documents<center>
+            <% end %>
+            <div class="clearfix"></div>
+          </fieldset>
+      </div>
+    </div>
+  </div>
+</div>

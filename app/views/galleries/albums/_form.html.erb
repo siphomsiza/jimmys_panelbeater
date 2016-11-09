@@ -1,0 +1,43 @@
+
+<%= simple_form_for(galleries_album) do |f| %>
+  <% if galleries_album.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h2><%= pluralize(galleries_album.errors.count, "error") %> prohibited this category from being saved:</h2>
+      <ul>
+        <% galleries_album.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-4 ui-sortable">
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name , class: "form-control"%>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 ui-sortable">
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description ,rows: 8, class: "form-control"%>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 ui-sortable">
+      <div class="form-group">
+        <%= f.label :public_display %>
+        <%= f.check_box :public_display , class: "form-control"%>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary"%>
+  </div>
+<% end %>

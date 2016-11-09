@@ -1,0 +1,2 @@
+module Galleries::GalleriesHelper
+end

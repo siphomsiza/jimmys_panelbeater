@@ -1,0 +1,22 @@
+NORMAL_USER_DATA:
+  firstname: User
+  lastname: Normal User
+  email: user@jimmyspanelbeater.com
+  password: password
+  password_confirmation: password
+MEMBERSHIP_STATUSES:
+  active: 0
+  inactive: 1
+USER_SYSTEM_ROLES:
+  regular_user: 0
+  system_admin: 1
+DEFAULT_CORE_SYSTEM_USER_ROLES:
+  - NAME: SYSTEM_ADMININSTRATOR
+  - NAME: SYSTEM_USER
+
+SYSTEM_ADMIN_DATA:
+  firstname: Super System
+  lastname: Admin User
+  email: admin@jimmyspanelbeater.com
+  password: password
+  password_confirmation: password

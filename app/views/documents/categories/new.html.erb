@@ -1,0 +1,18 @@
+<% @documents_category.parent_category = @parent_category %>
+<div class="row">
+  <div class="col-md-14 ui-sortable">
+    <h4 class="header-h"><%= tree_breadcrumbs(@documents_category).join("").html_safe %></h4>
+    <!-- begin panel -->
+    <div class="panel panel-inverse">
+      <div class="panel-heading">
+        <div class="panel-heading-btn">
+        </div>
+        <h4 class="panel-title">Category</h4>
+      </div>
+      <div class="panel-body">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>
+<input type='hidden' data-folder-colours='1' value="<%= Documents::Category::THEME_COLORS.values.join(' ') %>">

@@ -1,0 +1,63 @@
+<%if @documents_category.new_record?%>
+  <% @url = @parent_category ? documents_category_categories_path(@parent_category) : documents_categories_path(@account)%>
+<%else%>
+  <% @url = documents_category_path(@documents_category) %>
+<%end%>
+
+<%= simple_form_for(@documents_category ,:url => @url,format: "html") do |f| %>
+  <% if @documents_category.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h2><%= pluralize(@documents_category.errors.count, "error") %> prohibited this category from being saved:</h2>
+      <ul>
+        <% @documents_category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% unless @parent_category.nil? %>
+    <div class="form-group">
+      <%= f.hidden_field :parent_id, class: "form-control", value: @parent_category.id%>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-4 ui-sortable">
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name , class: "form-control"%>
+      </div>
+    </div>
+
+    <div class="col-md-4 ui-sortable">
+      <div class="form-group">
+        <%= f.label :colour, "Theme" %>
+        <%= f.select :colour, options_for_select(Documents::Category::THEME_COLORS,  f.object.colour), {:include_blank => false}, { :class =>'form-control'} %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 ui-sortable">
+      <div class="form-group">
+        <%= f.label  "preview" %>
+        <div id='doc-theme-preview'class="widget widget-state <%= f.object.colour %>">
+          <div class="state-info" id="residential_for_sale">
+            <h4>Category name <h4>
+            <p>2664 documents</p>
+          </div>
+          <div class="state-link">
+            <a href="#">View  <i class="fa fa-arrow-circle-o-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<% provide(:other_scripts, javascript_include_tag('form_utilities')) %>

@@ -1,0 +1,39 @@
+I"P(function() {
+  var readyHome;
+
+  readyHome = function() {
+    var home;
+    home = (function() {
+      var init;
+      init = function() {
+        return console.log("loading select2 ,timepicker ,datepicker");
+      };
+      $('select').each(function() {
+        return $(this).select2();
+      });
+      $('.select2-container').each(function() {
+        return $(this).attr('style', 'width: 40%;');
+      });
+      $('.timepicker').each(function() {
+        return $(this).datetimepicker({
+          format: 'LT'
+        });
+      });
+      $('.date_a_picker').each(function() {
+        return $(this).datetimepicker({
+          format: 'DD-MM-YYYY'
+        });
+      });
+      return {
+        init: init
+      };
+    })();
+    return home.init();
+  };
+
+  $(document).ready(readyHome);
+
+  $(document).on('page:load', readyHome);
+
+}).call(this);
+:ET

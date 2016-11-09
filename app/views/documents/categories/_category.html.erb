@@ -1,0 +1,15 @@
+<div class="col-md-4 col-sm-6 ui-sortable pull-left">
+  <div class="widget widget-state <%= documents_category.colour %>">
+    <div class="state-info" style="height: 70px;">
+      <h4><strong><span style="font-size: 16px;"><%= documents_category.name %></span></strong></h4>
+      <p style="font-size: 16px;"><i class="fa fa-folder"></i> <%= pluralize(documents_category.children_categories_count, "Category")%> <br/>
+         <i class="fa fa-file"></i>
+         <%= pluralize(documents_category.documents_count, "Document")%>
+      </p>
+    </div>
+    <div class="state-link">
+      <a title="view category" href="<%= documents_category_path(documents_category) %>"> View Category <i class="fa fa-arrow-circle-o-right"></i></a>
+      <a title="edit category" href="<%= edit_documents_category_path(documents_category) %>"> Edit Category <i class="fa fa-pencil"></i></a>
+    </div>
+  </div>
+</div>

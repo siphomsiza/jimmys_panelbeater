@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-xs-14">
+    <div class="row">
+      <div class="col-md-12">
+        <%= link_to raw('<span class="glyphicon glyphicon-th"></span> List Albums'),  galleries_albums_path(), class: 'btn btn-default ' %>
+        <%= link_to raw('<i class="fa fa-pencil-square"></i> Edit Album'), edit_galleries_album_path(@galleries_album), class: 'btn btn-default' %>
+        <%= link_to raw('<i class="fa fa-plus-square"></i> Create Album'), new_galleries_album_path(), class: 'btn btn-default' %>
+        <%= link_to raw('<i class="fa fa-plus-square"></i> Create Galleries'), new_galleries_album_gallery_path(@galleries_album), class: 'btn btn-default' %>
+        <%= link_to raw('<span class="glyphicon glyphicon-th"></span> List Galleries'),  galleries_album_galleries_path(@galleries_album), class: 'btn btn-default ' %>
+      </div>
+    </div>
+    <br/>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong><span class="glyphicon glyphicon-th"></span> Album for: <%=@galleries_album.name %> folder </strong>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <section id="prop-desc">
+            <%#= render 'shared/gallary'%>
+          </section>
+        </div>
+        <div class="row">
+          <div class="col-xs-14">
+            <div class="profile-cont">
+              <div class="bottom-bordered">
+                <div class="col-xs-6 split-horizontal"><b>Name</b></div>
+                <div class="col-xs-6 split-horizontal"><%=@galleries_album.name %></div>
+                <div class="clearfix"></div>
+              </div>
+
+              <div class="bottom-bordered">
+                <div class="col-xs-6 split-horizontal"><b>Description</b></div>
+                <div class="col-xs-6 split-horizontal"><%=@galleries_album.description %></div>
+                <div class="clearfix"></div>
+              </div>
+
+              <div class="bottom-bordered">
+                <div class="col-xs-6 split-horizontal"><b>Created By</b></div>
+                <div class="col-xs-6 split-horizontal"><%=@galleries_album.try(:user).try(:fullname) %></div>
+                <div class="clearfix"></div>
+              </div>
+
+              <div class="bottom-bordered">
+                <div class="col-xs-6 split-horizontal"><b>Public Display</b></div>
+                <div class="col-xs-6 split-horizontal"><%= yesno @galleries_album.public_display %></div>
+                <div class="clearfix"></div>
+              </div>
+
+              <div class="bottom-bordered">
+                <div class="col-xs-6 split-horizontal"><b>Galleries Available</b></div>
+                <div class="col-xs-6 split-horizontal"><%= yesno @galleries_album.galleries.any? %></div>
+                <div class="clearfix"></div>
+              </div>
+
+              <div class="bottom-bordered">
+                <div class="col-xs-6 split-horizontal"><b>Galleries Size </b></div>
+                <div class="col-xs-6 split-horizontal"><%= @galleries_album.galleries.count %></div>
+                <div class="clearfix"></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

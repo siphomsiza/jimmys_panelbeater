@@ -1,0 +1,18 @@
+<% @documents_category.parent_category = @parent_category %>
+<div class="row">
+  <div class="col-xs-14">
+    <h4 class="header-h"><%= tree_breadcrumbs(@documents_category).join("").html_safe %></h4>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="glyphicon glyphicon-th"></span>
+        <b>Edit category</b>
+        <%= link_to raw("<i class='fa fa-chevron-left'></i> Back"), documents_category_path(@parent_category), class: 'btn btn-default pull-right' if @parent_category%>
+        <div class="clearfix"></div>
+      </div>
+      <div class="panel-body">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>
+<input type='hidden' data-folder-colours='1' value="<%= Documents::Category::THEME_COLORS.values.join(' ') %>">

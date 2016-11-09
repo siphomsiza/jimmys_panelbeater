@@ -1,0 +1,42 @@
+<div class="row">
+  <h4 class="header-h">Dashboard</h4>
+  <div class="col-md-4 col-sm-6">
+    <div class="widget widget-state bg-purple">
+      <div class="state-icon"><i class="fa fa-group fa-2x"></i></div>
+      <div id="users_count" class="state-info">
+        <h4>All Users</h4>
+        <p><%= User.count%></p>
+      </div>
+      <div class="state-link">
+        <a href="<%#= admin_account_documents_categories_path(@account)%>">View Detail <i class="fa fa-arrow-circle-o-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-6">
+    <div class="widget widget-state bg-black-darker">
+      <div class="state-icon"><i class="fa fa-file-word-o fa-2x"></i></div>
+      <div id="documnets_count" class="state-info">
+        <h4>All Documents</h4>
+        <p><%= Documents::Document.count%></p>
+      </div>
+      <div class="state-link">
+        <a href="<%= documents_categories_path()%>">View Detail <i class="fa fa-arrow-circle-o-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 col-sm-6">
+    <div class="widget widget-state bg-red-darker">
+      <div class="state-icon"><i class="fa fa-image fa-2x"></i></div>
+      <div id="gallaries_count" class="state-info">
+        <h4>Gallery Albums/Media</h4>
+        <p><%= Galleries::Album.count%></p>
+      </div>
+      <div class="state-link">
+        <a href="<%= galleries_albums_path()%>">View Detail <i class="fa fa-arrow-circle-o-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+</div>

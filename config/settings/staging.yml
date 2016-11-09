@@ -1,0 +1,28 @@
+NORMAL_USER_DATA:
+  firstname: Funkshin
+  lastname: Normal User
+  email: user@jimmyspanelbeater.com
+  password: password
+  password_confirmation: password
+
+AWS:
+  AWS_ACCESS_KEY_ID: CHANGE ME
+  AWS_SECRET_ACCESS_KEY: CHANGE ME
+  AWS_BUCKET: jimmyspanelbeater_staging
+
+facebook_app_id: 533954596784646
+facebook_app_secret: c2b24c9c14c2ad2daaa6b35f10205d62
+
+twitter_app_id: YuHFVWYlBcyRolvg4CpiXq8Yi
+twitter_app_secret: kqYu5UdE7QE82XlTsFzofVHDMNAUTJKMPqAyoLQic88WIfxk0L
+
+linked_in_app_id: 77huz5dnoxw0sh
+linked_in_app_secret: vt87jD4BwaC0x1SZ
+
+meetup_app_id: sd5tr5kttiv0fhri5bfrepd6jp
+meetup_app_secret: a2cgnvfk8niq4sdbgfksoqkl6h
+
+google_app_id: 722582639978-lr687rfn116rgrrqp57dk8h1qkd096ni.apps.googleusercontent.com
+google_app_secret: FPjKYwELJJeSsZeCGBmEFF2Q
+
+#https://funkshin-events.herokuapp.com

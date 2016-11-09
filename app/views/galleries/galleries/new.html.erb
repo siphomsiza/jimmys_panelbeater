@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xs-14">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong><span class="glyphicon glyphicon-th"></span> New Gallery</strong>
+      </div>
+      <div class="panel-body">
+        <%= render 'form', galleries_gallery: @galleries_gallery %>
+        <div class="row">
+          <div class="col-md-2 ui-sortable pull-right">
+            <div class="form-group">
+              <%= link_to raw("<i class='fa fa-chevron-left'></i> Back"), galleries_album_galleries_path(@galleries_album), class: 'btn btn-sm btn-success' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-14 ui-sortable">
+    <h4 class="header-h"><%= tree_breadcrumbs(@parent_category).join("").html_safe %></h4>
+    <!-- begin panel -->
+    <div class="panel panel-inverse">
+      <div class="panel-heading">
+        <div class="panel-heading-btn">
+        </div>
+        <h4 class="panel-title">Upload documents</h4>
+      </div>
+      <div class="panel-body">
+        <%= render 'form' %>
+        <div class="row">
+          <div class="col-md-2 ui-sortable pull-right">
+            <div class="form-group">
+              <%= link_to raw("<i class='fa fa-chevron-left'></i> Back"), documents_category_path(@parent_category), class: 'btn btn-sm btn-success' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

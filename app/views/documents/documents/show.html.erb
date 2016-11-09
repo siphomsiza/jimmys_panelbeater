@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-xs-14">
+    <div class="profile-cont">
+      <div class="bottom-bordered">
+        <div class="split-horizontal"><b>Name</b></div>
+        <div class="split-horizontal"><%=@documents_document.name %> Foder</div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="bottom-bordered">
+        <div class="split-horizontal"><b>Document category</b></div>
+        <div class="split-horizontal"><%=@documents_document.category %></div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="bottom-bordered">
+        <div class="split-horizontal"><b>File</b></div>
+        <div class="split-horizontal"><%=@documents_document.file.file.filename %></div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="bottom-bordered">
+        <div class="split-horizontal"><b>Download File</b></div>
+        <div class="split-horizontal"><%= link_to "Download file",@documents_document.file.url if @documents_document.file %></div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class= "top-padding">
+        <%= link_to raw('<span class="glyphicon glyphicon-th"></span> List Categories'),  documents_categories_path(), class: 'btn btn-default' %>
+        <%= link_to raw('<span class="glyphicon glyphicon-th"></span> List Sub Categories'),  documents_categories_path(parent_category: @parent_category.parent_category), class: 'btn btn-default' %>
+        <%= link_to raw('<span class="glyphicon glyphicon-th"></span> List Documents'), documents_category_documents_path(@parent_category), class: 'btn btn-default' %>
+        <%= link_to raw('<span class="glyphicon glyphicon-pencil"></span> Edit'), edit_documents_category_document_path(@parent_category,@documents_document), class: 'btn btn-primary' %>
+        <%= link_to raw('<span class="glyphicon glyphicon-trash"></span>  Delete'), documents_category_document_path(@parent_category,@documents_document), class: 'btn btn-danger', method: :delete %>
+        <%= link_to raw('<span class="glyphicon glyphicon-download"></span> Download'), @documents_document.file.url, class: 'btn btn-success' %>
+      </div>
+    </div>
+  </div>
+</div>

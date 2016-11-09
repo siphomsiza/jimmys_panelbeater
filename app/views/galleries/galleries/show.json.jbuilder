@@ -1,0 +1,1 @@
+json.partial! "galleries_galleries/galleries_gallery", galleries_gallery: @galleries_gallery

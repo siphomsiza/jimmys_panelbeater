@@ -1,0 +1,109 @@
+<!-- The template to display files available for upload -->
+<script id="template-upload" type="text/x-tmpl">
+  {% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+      {%  if (file.type.match('image')) { %}
+        <td class="preview" width="200px;"><span class="fade"></span></td>
+      {% } else { %}
+        <td class="preview" width="200px;"><a  rel="gallery"><i class="fa fa-file fa-2x"></i></a></td>
+      {% } %}
+      <td class="name" width="222px;"><span>{%=file.name%}</span></td>
+        <td class="size" width="317px;"><span>{%=o.formatFileSize(file.size)%}</span>
+      {%  if (file.error) { %}
+      </td><td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
+      {% } else if (o.files.valid && !i) { %}
+        {%  if (file.size < 5000000) { %}
+          <div class="progress">
+            <div class="progress-bar bar" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" >
+            </div>
+          </div>
+        {% } else { %}
+          <div>You cant upload more than {%=o.formatFileSize(5000000)%} please upload less than {%=o.formatFileSize(5000000)%}</div>
+        {% } %}
+      {% } else { %}
+        <td colspan="2"></td>
+      {% } %}
+      <td style="padding-left: 50px;" valign="middle" width="260px;">
+        {% if (!o.options.autoUpload && file.size < 5000000) { %}
+          <span class="start">
+          <button class="btn btn-xs btn-primary">
+            <i class="glyphicon glyphicon-upload"></i>
+            <span>{%=locale.fileupload.start%}</span>
+          </button>
+          </span>
+        {% } %}
+
+        {% if (!i) { %}
+          <span class="cancel">
+            <button class="btn btn-xs   btn-inverse">
+              <i class="glyphicon glyphicon-ban-circle"></i>
+              <span>{%=locale.fileupload.cancel%}</span>
+            </button>
+          </span>
+        {% } %}
+      </td>
+    </tr>
+  {% } %}
+
+</script>
+<!-- The template to display files available for download -->
+<script id="template-download" type="text/x-tmpl">
+  {% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+      {% if (file.error) { %}
+        <td width="200px;"></td>
+        <td class="name"width="222px;"><span>{%=file.name%}</span></td>
+        <td class="error" colspan="1" width="300px;"> {%=locale.fileupload.errors[file.error] || file.error%}</td>
+        {% } else { %}
+
+        <td class="preview" width="200px;">
+          {% if (file.thumbnail_url) { %}
+            <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}">
+            {% if (file.content_type.match('image')) { %}
+              <img src="{%=file.thumbnail_url%}" width="80" height="60"></a>
+            {% } else { %}
+               <i class="fa fa-file fa-2x"></i></a>
+            {% } %}
+          {% } %}
+        </td>
+        <td class="name" width="222px;">
+          <a href="{%=file.url%}" title="{%=file.name%}" rel="{%=file.thumbnail_url&&'gallery'%}" download="{%=file.name%}">{%=file.name%}</a>
+        </td>
+        <td class="size" width="317px;"><span>{%=o.formatFileSize(file.size)%}</span></td>
+        {% } %}
+      <td class="delete" align="right" width="280px;">
+        {% if (!file.error) { %}
+          <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}" target="_blank" class="btn btn-xs  btn-default">
+            <i class="glyphicon glyphicon-download"></i>
+            <span>Download</span>
+          </a>
+        {% } %}
+        <button class="btn btn-xs  btn-danger" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}">
+          <i class="glyphicon glyphicon-trash"></i>
+          <span>{%=locale.fileupload.destroy%}</span>
+        </button>
+        <input type="checkbox" name="delete" value="1">
+      </td>
+
+    </tr>
+    {% } %}
+
+    {% if (FileCount(file=o.files.length)) { %}
+    {% } %}
+
+</script>
+<script>
+files_counter = 0
+function FileCount(element){
+  files_counter = files_counter + element
+  message = document.getElementById("property_listing_images_status");
+  if (message && files_counter > 4){
+    $("#property_listing_images_status").html("<span class='fa fa-check icon-success'>  Completed </span>");
+    $("#group-expand-images-info").hide()
+    $("#group-collapse-images-info").show()
+    $("#images-info").hide()
+  }else if(message && files_counter < 5){
+    $("#property_listing_images_status").html("<span class='fa fa-times icon-incomplete'> Incomplete </span>");
+  }
+}
+</script>

@@ -1,0 +1,123 @@
+@import"custom";
+body{
+	padding-top: 54px;
+	background: #d9e0e7;
+	font-size: 12px;
+	font-family: 'Open Sans',"Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #707478;
+}
+.page-header {
+	font-size: 24px;
+	margin: 0 0 20px;
+	padding: 0;
+	border: none;
+	line-height: 28px;
+	color: black;
+}
+.well {
+	padding: 15px;
+	background: #fff;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+.bwizard-steps li a {
+    display: block !important;
+    margin-left: 30px !important;
+    text-decoration: none !important;
+}
+.bwizard-steps a {
+    color: #333;
+}
+label {
+	display: inline-block;
+	margin-bottom: 5px;
+	font-weight: 500;
+	font-family: 'Open Sans',"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 12px;
+}
+.bwizard-steps .active a {
+    color: #fff;
+}
+.field_with_errors {
+		@extend .has-error;
+		@extend .control-group !optional;
+  	@extend .error !optional;
+}
+.video-list-item ,.related-list-item:hover {
+		// color: #333333;
+		color: white;
+		text-decoration: none;
+}
+
+.white-row {
+	padding: 20px;
+	margin-bottom: 20px;
+	background-color: #fff;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+#mapCanvas {
+	position: relative;
+	overflow: hidden;
+	-webkit-transform: translateZ(0px);
+	background-color: rgb(229, 227, 223);
+	width: 100%;
+	height: 400px;
+	display: block;
+}
+#infoPanel {
+	float: left;
+	margin-left: 10px;
+}
+#infoPanel div {
+	margin-bottom: 5px;
+}
+
+
+.dashboard-section {
+	margin-top: 30px;
+	height: 120px;
+	@include mini-shadow;
+	padding: 5px;
+	background: #FFFFFF;
+	#dashboard-section-1{
+		float: left;
+		padding: 10px;
+		text-align: center;
+		background: #ffffff;
+		#commision-due{
+			color: #009933;
+			font-size:28px;
+		}
+		#commission-label{
+			color: #cccccc;
+			font-size:14px;
+			}
+	}
+	#dashboard-section-2{
+		float: left;
+		padding: 10px;
+		text-align: center;
+		#property-portfolio{
+			color:#0099FF;
+			font-size:28px;
+		}
+		#commission-label{
+			color: #cccccc;
+			font-size:14px;
+			}
+	}
+	#dashboard-section-3{
+		float: left;
+		padding: 10px;
+		text-align: center;
+		#properties-sold{
+			font-size:28px;
+		}
+		#commission-label{
+			color: #cccccc;
+			font-size:14px;
+			}
+	}
+}

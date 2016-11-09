@@ -1,0 +1,33 @@
+NORMAL_USER_DATA:
+  firstname: User
+  lastname: Normal User
+  email: user@jimmyspanelbeater.com
+  password: password
+  password_confirmation: password
+
+SYSTEM_ADMIN_DATA:
+  firstname: Super System
+  lastname: Admin User
+  email: admin@jimmyspanelbeater.com
+  password: password
+  password_confirmation: password
+
+AWS:
+  AWS_ACCESS_KEY_ID: CHANGE ME
+  AWS_SECRET_ACCESS_KEY: CHANGE ME
+  AWS_BUCKET: jimmyspanelbeater_development
+
+facebook_app_id: 1427618510893147
+facebook_app_secret: 8994eb3e4500890f5e281720f36a7f28
+
+twitter_app_id: YuHFVWYlBcyRolvg4CpiXq8Yi
+twitter_app_secret: kqYu5UdE7QE82XlTsFzofVHDMNAUTJKMPqAyoLQic88WIfxk0L
+
+linked_in_app_id: 771mqu0oz0j6ar
+linked_in_app_secret: tNupIO0wgAye8Vwq
+
+meetup_app_id: hftlgecoju03s6tk6lvl9meohb
+meetup_app_secret: etq0cf5inc3t0tg8ki5be19hct
+
+google_app_id: 722582639978-sae7lv9fkcn0ulsckgak86oi4fbvcbma.apps.googleusercontent.com
+google_app_secret: jRVJiTEeLYIdcKQX-EETKdju

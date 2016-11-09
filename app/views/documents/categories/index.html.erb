@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-14 ui-sortable">
+    <h4 class="header-h">Document Categories</h4>
+    <!-- begin panel -->
+    <div class="panel panel-inverse">
+      <div class="panel-heading">
+        <div class="panel-heading-btn">
+        </div>
+        <h4 class="panel-title">Categories</h4>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-2 ui-sortable pull-right">
+            <div class="form-group">
+              <%= link_to raw("<i class='fa fa-plus-square'></i> New"), new_documents_category_path(), class: 'documents btn btn-sm btn-success' %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <% @documents_categories.each_with_index do |documents_category, index|%>
+            <%= render "category", :documents_category => documents_category %>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

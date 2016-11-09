@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-14 ui-sortable">
+    <h4 class="header-h"><%#= tree_breadcrumbs(@galleries_album).join("").html_safe %></h4>
+    <div class="panel panel-inverse">
+      <div class="panel-heading">
+        <div class="panel-heading-btn">
+        </div>
+        <h1 class="panel-title"><i class="fa fa-child"></i> Galleries for <%= @galleries_album.name%></h1>
+      </div>
+      <div class="panel-body">
+          <fieldset>
+            <legend class="width-full">
+              <div class="row">
+                <div class="col-xs-10">
+                  Documents
+                </div>
+                <div class="col-xs-5 ui-sortable pull-right" style="padding-bottom: 10px;padding-right: 95px;">
+                  <%= link_to raw("<i class='fa fa-pencil-square'></i> Edit Gallery"), edit_galleries_album_gallery_path(album_id: @galleries_album,id: @galleries_album.galleries.first),style: "margin-left: 50px;" ,class: 'pull-right btn btn-sm btn-primary' if @galleries_album.galleries.any?%>
+                  <%= link_to raw("<i class='fa fa-plus-square'></i> New"), new_galleries_album_gallery_path(album_id: @galleries_album), class: 'btn btn-sm btn-success pull-right' %>
+                </div>
+              </div>
+            </legend>
+            <table class="table table-striped">
+              <tbody>
+                <% @galleries_album.galleries.each do |gallery| %>
+                  <tr class="template-download fade in">
+                    <td width="200px;" class="preview">
+                      <a  rel="gallery" title="<%= gallery.file %>" href="<%= gallery.try(:file).try(:url) %>">
+                        <%if gallery.file.thumb && gallery.file.thumb.url %>
+                          <img src="<%= gallery.file.thumb.url%>">
+                        <%else%>
+                          <i class="fa fa-image fa-4x"></i>
+                        <%end%>
+                        &nbsp; <%= gallery.try(:file).try(:file).try(:original_filename) %>
+                      </a>
+                    </td>
+                    <td width="317px;" class="size"><span><%= number_to_human_size(gallery.try(:file).try(:size), precision: 5) %></span></td>
+                    <td width="243px;" align="right" class="delete">
+                      <a class="btn btn-xs  btn-default" target="_blank" download="<%= gallery.try(:file).try(:file).try(:original_filename) %>" rel="gallery" title="<%= gallery.file %>" href="<%= gallery.file.url%>">
+                        <i class="glyphicon glyphicon-download"></i>
+                        <span>Download</span>
+                      </a>
+                      <%=link_to raw('<i class="glyphicon glyphicon-trash"></i>') + "Delete", galleries_album_gallery_path(gallery.album_id,gallery,:sub_category=> true), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs  btn-danger'  %>
+                    </td>
+                  </tr>
+                <%end%>
+              </tbody>
+            </table>
+            <% unless @galleries_album.galleries.present? %>
+              <center>No galleries<center>
+            <% end %>
+            <div class="clearfix"></div>
+          </fieldset>
+      </div>
+    </div>
+  </div>
+</div>
