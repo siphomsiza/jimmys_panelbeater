@@ -3,8 +3,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   layout :determine_layout
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  # protect_from_forgery with: :null_session, if: Proc.new {|c| c.request.format.json? }
 
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :exception,unless:Proc.new {|c| c.request.format.json? }
 
   def determine_layout
     return 'application-devise' if devise_controller?

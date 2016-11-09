@@ -54,12 +54,15 @@
           <div class="col-md-10 col-md-offset-1">
             <div class="row">
               <%if @galleries_albums.any? %>
-                <%@galleries_albums.each do |galleries_album|%>
+                <%@galleries_albums.each_with_index do |galleries_album,index|%>
                   <%if galleries_album.galleries.any? && galleries_album.galleries.first && galleries_album.galleries.first.file%>
                     <div class="col-sm-4 margin40">
-                      <div class="item-img-wrap ">
+                      <div class="fadein-<%=index%> item-img-wrap fadein-size">
                         <!-- <img src="/assets/img/team-1.jpg" class="img-responsive" alt="workimg"> -->
-                        <img src="<%= galleries_album.galleries.order('RANDOM()').first.file.medium.url%>" class="img-responsive" alt="workimg">
+                        <!-- <img src="<%= galleries_album.galleries.order('RANDOM()').first.file.medium.url%>" class="img-responsive" alt="workimg"> -->
+                        <%galleries_album.galleries.each do |image|%>
+                        <img src="<%= image.file.medium.url%>" class="img-responsive" alt="workimg">
+                        <%end%>
                         <div class="item-img-overlay">
                           <a href="#">
                             <span></span>

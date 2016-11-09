@@ -9,6 +9,107 @@ var fileUploadErrors = {
 
 
 $(function () {
+  if($('.fadein-0').length){
+    console.log($('.fadein-size').length);
+    $('.fadein-0 img:gt(0)').hide();
+    setInterval(function () {
+        $('.fadein-0 :first-child').fadeOut()
+                                 .next('img')
+                                 .fadeIn()
+                                 .end()
+                                 .appendTo('.fadein-0');
+    }, 4000); // 4 seconds
+
+    $('.fadein-1 img:gt(0)').hide();
+    setInterval(function () {
+        $('.fadein-1 :first-child').fadeOut()
+                                 .next('img')
+                                 .fadeIn()
+                                 .end()
+                                 .appendTo('.fadein-1');
+    }, 4000); // 4 seconds
+
+    $('.fadein-2 img:gt(0)').hide();
+    setInterval(function () {
+        $('.fadein-2 :first-child').fadeOut()
+                                 .next('img')
+                                 .fadeIn()
+                                 .end()
+                                 .appendTo('.fadein-2');
+    }, 4000); // 4 seconds
+
+    $('.fadein-3 img:gt(0)').hide();
+    setInterval(function () {
+        $('.fadein-3 :first-child').fadeOut()
+                                 .next('img')
+                                 .fadeIn()
+                                 .end()
+                                 .appendTo('.fadein-3');
+    }, 4000); // 4 seconds
+
+    $('.fadein-4 img:gt(0)').hide();
+    setInterval(function () {
+        $('.fadein-4 :first-child').fadeOut()
+                                 .next('img')
+                                 .fadeIn()
+                                 .end()
+                                 .appendTo('.fadein-4');
+    }, 4000); // 4 seconds
+
+    $('.fadein-5 img:gt(0)').hide();
+    setInterval(function () {
+        $('.fadein-5 :first-child').fadeOut()
+                                 .next('img')
+                                 .fadeIn()
+                                 .end()
+                                 .appendTo('.fadein-5');
+    }, 4000); // 4 seconds
+
+    $('.fadein-6 img:gt(0)').hide();
+    setInterval(function () {
+        $('.fadein-6 :first-child').fadeOut()
+                                 .next('img')
+                                 .fadeIn()
+                                 .end()
+                                 .appendTo('.fadein-6');
+    }, 4000); // 4 seconds
+
+    $('.fadein-7 img:gt(0)').hide();
+    setInterval(function () {
+        $('.fadein-7 :first-child').fadeOut()
+                                 .next('img')
+                                 .fadeIn()
+                                 .end()
+                                 .appendTo('.fadein-7');
+    }, 4000); // 4 seconds
+
+    $('.fadein-8 img:gt(0)').hide();
+    setInterval(function () {
+        $('.fadein-8 :first-child').fadeOut()
+                                 .next('img')
+                                 .fadeIn()
+                                 .end()
+                                 .appendTo('.fadein-8');
+    }, 4000); // 4 seconds
+    $('.fadein-9 img:gt(0)').hide();
+    setInterval(function () {
+        $('.fadein-9 :first-child').fadeOut()
+                                 .next('img')
+                                 .fadeIn()
+                                 .end()
+                                 .appendTo('.fadein-9');
+    }, 4000); // 4 seconds
+
+    $('.fadein-10 img:gt(0)').hide();
+    setInterval(function () {
+        $('.fadein-10 :first-child').fadeOut()
+                                 .next('img')
+                                 .fadeIn()
+                                 .end()
+                                 .appendTo('.fadein-10');
+    }, 4000); // 4 seconds
+
+  }
   if($('#fileupload').length){
 
     // Initialize the jQuery File Upload widget:
