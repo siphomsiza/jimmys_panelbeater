@@ -1,8 +1,9 @@
 class DashboardController < ApplicationController
   before_filter :authenticate_user!
-  
+
   def index
     @page_name = "Dashboard"
+    @notes = Note.all
   end
 
   private
