@@ -1,0 +1,146 @@
+.note_outside{
+	height:215px;
+	padding:10px;
+	width:215px;
+	position:absolute;
+	overflow:hidden;
+	cursor:move;
+
+	font-family:Trebuchet MS,Tahoma,Myriad Pro,Arial,Verdana,sans-serif;
+	font-size:22px;
+
+	/* Adding a CSS3 shadow below the note, in the browsers which support it: */
+	-moz-box-shadow:2px 2px 0 #DDDDDD;
+	-webkit-box-shadow:2px 2px 0 #DDDDDD;
+	box-shadow:2px 2px 0 #DDDDDD;
+
+}
+.note{
+	height:215px;
+	padding:10px;
+	width:215px;
+	position:absolute;
+	overflow:hidden;
+	cursor:move;
+
+	font-family:Trebuchet MS,Tahoma,Myriad Pro,Arial,Verdana,sans-serif;
+	font-size:22px;
+
+	/* Adding a CSS3 shadow below the note, in the browsers which support it: */
+	-moz-box-shadow:2px 2px 0 #DDDDDD;
+	-webkit-box-shadow:2px 2px 0 #DDDDDD;
+	box-shadow:2px 2px 0 #DDDDDD;
+}
+.note-form{
+	height:210px;
+	padding:0px;
+	width:210px;
+	position:relative;;
+	overflow:hidden;
+	cursor:move;
+
+	font-family:Trebuchet MS,Tahoma,Myriad Pro,Arial,Verdana,sans-serif;
+	font-size:22px;
+
+	/* Adding a CSS3 shadow below the note, in the browsers which support it: */
+	-moz-box-shadow:2px 2px 0 #DDDDDD;
+	-webkit-box-shadow:2px 2px 0 #DDDDDD;
+	box-shadow:2px 2px 0 #DDDDDD;
+}
+
+#fancy_ajax .note{ cursor:default; }
+
+/* Three styles for the notes: */
+
+.yellow{
+	background-color:#FDFB8C;
+	border:1px solid #DEDC65;
+}
+/*#note_color_yellow{
+	background-color:#FDFB8C;
+	border:1px solid #DEDC65;
+}*/
+label[for='note_color_yellow']{
+	background-color:#FDFB8C;
+	border:1px solid #DEDC65;
+	padding: 5px;
+	border-radius: 4px;
+	width: 200px;
+}
+.blue{
+	background-color:#A6E3FC;
+	border:1px solid #75C5E7;
+}
+label[for='note_color_blue']{
+	background-color:#A6E3FC;
+	border:1px solid #75C5E7;
+	padding: 5px;
+	border-radius: 4px;
+	width: 200px;
+}
+
+.green{
+	background-color:#A5F88B;
+	border:1px solid #98E775;
+}
+label[for='note_color_green']{
+	background-color:#A5F88B;
+	border:1px solid #98E775;
+	padding: 5px;
+	border-radius: 4px;
+	width: 200px;
+}
+.pink{
+	background-color:#FFC0CB;
+	border:1px solid #FFC0CB;
+}
+label[for='note_color_pink']{
+	background-color:#FFC0CB;
+	border:1px solid #FFC0CB;
+	padding: 5px;
+	border-radius: 4px;
+	width: 200px;
+}
+
+/* Each note has a data span, which holds its ID */
+span.data{ display:none; }
+
+/* The "Add a note" button: */
+#addButton{
+	position:absolute;
+	top:-70px;
+	left:0;
+}
+#main {
+    margin: 0 auto;
+    position: relative;
+    width: 838px;
+		height: 900px;
+    z-index: 10;
+    background: url(img/add_a_note_help.gif) no-repeat left top;
+}
+.author {
+    bottom: 10px;
+    color: #666666;
+    font-family: Arial,Verdana,sans-serif;
+    font-size: 12px;
+    position: absolute;
+    right: 10px;
+}
+.note_actions {
+    bottom: 10px;
+    color: #666666;
+    font-family: Arial,Verdana,sans-serif;
+    font-size: 12px;
+    position: absolute;
+    left: 10px;
+}
+
+.note_title {
+		font-size: 16px;
+		border-bottom: 1px solid silver
+}
+.note_content {
+		font-size: 14px;
+
+}

@@ -1,0 +1,75 @@
+<script>
+  $(document).ready(function() {
+      console.log("i am here now");
+      $("input[name='note[color]']").change(function() {
+         console.log("yes changed");
+         $(".note-form").attr("class","note-form "+ $(this).val() + "")
+      });
+  })
+</script>
+<%= form_for(note) do |f| %>
+  <% if note.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h2><%= pluralize(note.errors.count, "error") %> prohibited this category from being saved:</h2>
+      <ul>
+        <% note.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="col-md-3">
+    <div class="row">
+      <div class="note-form <%=f.object.color.present? ? f.object.color : 'yellow'%>">
+      	<div class="body"></div>
+      	<div class="author"></div>
+      	<span class="data"></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-12 ui-sortable">
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title , class: "form-control"%>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 ui-sortable">
+        <div class="form-group">
+          <%= f.label :content %>
+          <%= f.text_area :content ,rows: 5 ,class: "form-control"%>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 ui-sortable">
+        <%= f.label :private %>
+        <div class="form-group">
+          <div class="col-md-2">
+            <%= f.check_box :private,class: "form-control"  %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 ui-sortable">
+        <%= f.label :color %>
+        <div class="form-group">
+          <div class="col-md-2">
+            <%= f.collection_radio_buttons :color, ["yellow","blue","green","pink"], :to_s, :to_s, prompt: true %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary"%>
+  </div>
+<% end %>

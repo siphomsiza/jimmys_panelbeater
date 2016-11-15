@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102155706) do
+ActiveRecord::Schema.define(version: 20161115062932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,20 @@ ActiveRecord::Schema.define(version: 20161102155706) do
     t.datetime "updated_at"
     t.index ["album_id"], name: "index_galleries_galleries_on_album_id", using: :btree
     t.index ["user_id"], name: "index_galleries_galleries_on_user_id", using: :btree
+  end
+
+  create_table "notes", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.uuid     "user_id"
+    t.string   "title"
+    t.text     "content"
+    t.string   "color"
+    t.boolean  "private",    default: false,  null: false
+    t.string   "pos_x",      default: "0px"
+    t.string   "pos_y",      default: "47px"
+    t.integer  "z_index",    default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["user_id"], name: "index_notes_on_user_id", using: :btree
   end
 
   create_table "seed_migration_data_migrations", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|

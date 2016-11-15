@@ -10,7 +10,7 @@ class Galleries::Gallery < ApplicationRecord
 
   belongs_to :album,
   :class_name => "Galleries::Album",
-  :foreign_key => "album"
+  :foreign_key => "album_id"
 
   validates :file, :presence => true
   validates :user_id, :presence => true

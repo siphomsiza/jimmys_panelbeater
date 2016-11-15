@@ -5,7 +5,7 @@
   padding:10px;
   position:relative;
   overflow:hidden;
-  background:#101010 url(../images/icons/loading.gif) no-repeat center center;
+  background:#101010 url(../assets/icons/loading.gif) no-repeat center center;
   -moz-border-radius:10px;
   -webkit-border-radius:10px;
   border-radius:10px;
@@ -60,25 +60,26 @@
     filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);
   background-repeat:no-repeat;
   background-position: center center;
+  margin-right: 0px;
 }
 .msg_controls a:hover{
   opacity:1.0;
     filter:progid:DXImageTransform.Microsoft.Alpha(opacity=99);
 }
 .msg_controls a.msg_grid{
-  background-image:url(../images/icons/grid.png);
+  background-image:url(../assets/icons/grid.png);
 }
 .msg_controls a.msg_prev{
-  background-image:url(../images/icons/prev.png);
+  background-image:url(../assets/icons/prev.png);
 }
 .msg_controls a.msg_next{
-  background-image:url(../images/icons/next.png);
+  background-image:url(../assets/icons/next.png);
 }
 .msg_controls a.msg_pause{
-  background-image:url(../images/icons/pause.png);
+  background-image:url(../assets/icons/pause.png);
 }
 .msg_controls a.msg_play{
-  background-image:url(../images/icons/play.png);
+  background-image:url(../assets/icons/play.png);
 }
 .msg_thumbs{
   background:#000;
@@ -131,11 +132,11 @@
     filter:progid:DXImageTransform.Microsoft.Alpha(opacity=99);
 }
 .msg_thumbs a.msg_thumb_next{
-  background-image:url(../images/icons/next_thumb.png);
+  background-image:url(../assets/icons/next_thumb.png);
   right:5px;
 }
 .msg_thumbs a.msg_thumb_prev{
-  background-image:url(../images/icons/prev_thumb.png);
+  background-image:url(../assets/icons/prev_thumb.png);
   left:5px;
 }
 .msg_thumbs a.msg_thumb_close{
@@ -144,7 +145,7 @@
   width:0px;
   left:50%;
   margin:0 0 0 -25px;
-  background:#202020 url(../images/icons/up.png) no-repeat center center;
+  background:#202020 url(../assets/icons/up.png) no-repeat center center;
   height:16px;
   opacity:0.7;
   -moz-border-radius:5px 5px 0 0;
@@ -159,7 +160,7 @@
 }
 .msg_loading{
   position:absolute;
-  background:transparent url(../images/icons/loading.gif) no-repeat center center;
+  background:transparent url(../assets/icons/loading.gif) no-repeat center center;
   top:50%;
   left:50%;
   width:50px;
@@ -192,7 +193,7 @@
     <a href="#" id="msg_thumb_close" class="msg_thumb_close"></a>
     <span class="msg_loading"></span><!-- show when next thumb wrapper loading -->
   </div>
-  <div id="msg_controls" class="msg_controls pull-right"><!-- right has to animate to 15px, default -110px -->
+  <div id="msg_controls" class="msg_controls pull-right" style="margin-right: 0px;"><!-- right has to animate to 15px, default -110px -->
     <a href="#" id="msg_prev" class="msg_prev"></a>
     <a href="#" id="msg_pause_play" class="msg_pause"></a><!-- has to change to msg_play if paused-->
     <a href="#" id="msg_next" class="msg_next"></a>

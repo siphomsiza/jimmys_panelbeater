@@ -1,0 +1,44 @@
+
+<div class="row">
+  <div class="col-xs-14">
+    <div class="row">
+      <div class="col-md-12">
+        <%= link_to raw('<span class="glyphicon glyphicon-th"></span> List My Notes'), notes_path(), class: 'btn btn-default' %>
+        <%= link_to raw('<i class="fa fa-pencil" aria-hidden="true"></i> Edit'), edit_note_path(@note), class: 'btn btn-default' %>
+        <%= link_to raw('<i class="fa fa-trash" aria-hidden="true"></i>  Delete'), note_path(@note), class: 'btn btn-default', method: :delete %>
+      </div>
+    </div>
+    <br/>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong><span class="glyphicon glyphicon-th"></span> Note for: <%=@note.title %> folder </strong>
+      </div>
+      <div class="panel-body">
+        <div class="profile-cont">
+          <div class="bottom-bordered">
+            <div class="col-xs-6 split-horizontal"><b>Title</b></div>
+            <div class="col-xs-6 split-horizontal"><%=@note.title %></div>
+            <div class="clearfix"></div>
+          </div>
+          <div class="bottom-bordered">
+            <div class="col-xs-6 split-horizontal"><b>Content</b></div>
+            <div class="col-xs-6 split-horizontal"><%=@note.content %></div>
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="bottom-bordered">
+            <div class="col-xs-6 split-horizontal"><b>Color</b></div>
+            <div class="col-xs-6 split-horizontal">
+              <label for="note_color_<%=@note.color %>"><%=@note.color %></label>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+          <br/>
+          <div class= "top-padding">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

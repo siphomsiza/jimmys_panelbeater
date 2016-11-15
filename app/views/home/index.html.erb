@@ -61,7 +61,9 @@
                         <!-- <img src="/assets/img/team-1.jpg" class="img-responsive" alt="workimg"> -->
                         <!-- <img src="<%= galleries_album.galleries.order('RANDOM()').first.file.medium.url%>" class="img-responsive" alt="workimg"> -->
                         <%galleries_album.galleries.each do |image|%>
-                        <img src="<%= image.file.medium.url%>" class="img-responsive" alt="workimg">
+                          <%if image.file && image.file.medium && image.file.medium.url%>
+                            <img src="<%= image.file.medium.url%>" class="img-responsive" alt="workimg">
+                          <%end%>
                         <%end%>
                         <div class="item-img-overlay">
                           <a href="#">
@@ -70,8 +72,8 @@
                         </div>
                       </div>
                       <div class="work-desc">
-                        <h3><a> <%= galleries_album.name %></a></h3>
-                        <span><%= galleries_album.description %></span>
+                        <h3><a title="view gallery"href="<%= gallery_path(album_id: galleries_album)%>"> <%= galleries_album.name %> <i class="fa fa-arrow-circle-o-right"></i></a></h3>
+                        <span><%= truncate(galleries_album.description,:length => 100)%></span>
                       </div><!--work desc-->
                     </div>
                   <%end%>

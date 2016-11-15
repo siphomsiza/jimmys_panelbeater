@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   end
 
   root to: 'home#index'
+  # get 'home/show'
+  match '/:album_id/show', to: "home#show", via: 'get', as: "gallery"
+
+  # namespace :home do
+  #   get 'show'
+  # end
   get 'dashboard/index'
 
   namespace :documents do
@@ -21,5 +27,8 @@ Rails.application.routes.draw do
       resources :galleries
     end
   end
+
+  resources :notes
+  post 'notes/update_position' => 'notes#update_position', as: 'update_position'
 
 end

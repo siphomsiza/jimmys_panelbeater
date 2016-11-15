@@ -13,10 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require note
 //= require jquery-fileupload
 //= require jquery.form.min
 //= require file_uploads
-//= require home_page/home.js
+
 //= require home_page/custom_confirm_alert.js
 //= require home_page/js/jquery.min.js
 //= require home_page/js/bootstrap.min.js
@@ -30,14 +31,9 @@
 //= require home_page/js/owl.carousel.min.js
 //= require home_page/js/jquery.magnific-popup.min.js
 //= require home_page/js/jquery.mb.YTPlayer.min.js
-//= require home_page/js/custom.js
 //= require home_page/js/jquery.countdown.min.js
 //= require home_page/js/countdown.js
 //= require home_page/js/sweetalert.min.js
 //= require categories
-
-=require jquery.pjax
 //= require select2
-//= require moment
-= require bootstrap-datetimepicker
 //= require categories

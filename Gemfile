@@ -39,6 +39,8 @@ gem 'pry-rails'
 #gem 'pry-byebug'
 gem 'pry-remote'
 
+#gem 'rails-gallery'
+
 # Gems for the application ============================
 
 # Use sqlite3 as the database for Active Record

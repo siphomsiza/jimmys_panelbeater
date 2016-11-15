@@ -38,6 +38,10 @@
 
 class User < ActiveRecord::Base
   default_scope  -> {order("created_at asc")}
+  has_many :notes,
+           :class_name => "Note",
+           :foreign_key => "user_id",
+           :dependent => :destroy
 
   devise :database_authenticatable,
          :registerable,
@@ -55,6 +59,9 @@ class User < ActiveRecord::Base
   # :presence => true,
   # :uniqueness => true,
   # :email => true
+  def to_s
+    [firstname, lastname].join(" ").presence || email
+  end
 
   def fullname
     [firstname, lastname].join(" ").presence || email
