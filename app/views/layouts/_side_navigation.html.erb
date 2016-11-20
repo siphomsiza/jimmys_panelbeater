@@ -3,8 +3,8 @@
     <li><a class="<%= "active" if ['dashboard'].include?(controller_name)%>" href="<%= dashboard_index_path()%>"><i class="fa fa-dashboard"></i> Dashboard</a></li>
     <li><a class="<%= "active" if ['events'].include?(controller_name)%>" href="<%#= edit_user_password_path()%>"><i class="fa fa-user"></i> My Profile</a></li>
     <li><a class="<%= "active" if ['events'].include?(controller_name)%>" href="<%#= edit_user_password_path()%>"><i class="fa fa-user"></i> All Users</a></li>
-    <li><a class="<%= "active" if ['professional_events'].include?(controller_name)%>" href="<%= documents_categories_path()%>"><i class="fa fa-file-word-o"></i> All Documents</a></li>
-    <li><a class="<%= "active" if ['professional_events'].include?(controller_name)%>" href="<%= galleries_albums_path() %>"><i class="fa fa-bars"></i> Gallaries/Media</a></li>
+    <li><a class="<%= "active" if ['categories','documents'].include?(controller_name)%>" href="<%= documents_categories_path()%>"><i class="fa fa-file-word-o"></i> All Documents</a></li>
+    <li><a class="<%= "active" if ['albums','galleries'].include?(controller_name)%>" href="<%= galleries_albums_path() %>"><i class="fa fa-bars"></i> Gallaries/Media</a></li>
     <li><a class="<%= "active" if ['notes'].include?(controller_name)%>" href="<%= notes_path() %>"><i class="fa fa-bars"></i> Notes</a></li>
 
     <li><a class="" href="#"><i class="fa fa-calendar"></i> Calendar</a></li>
