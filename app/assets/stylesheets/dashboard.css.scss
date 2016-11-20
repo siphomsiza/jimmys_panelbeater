@@ -1,4 +1,3 @@
-@import"custom";
 body{
 	padding-top: 54px;
 	background: #d9e0e7;
@@ -38,11 +37,11 @@ label {
 .bwizard-steps .active a {
     color: #fff;
 }
-.field_with_errors {
-		@extend .has-error;
-		@extend .control-group !optional;
-  	@extend .error !optional;
-}
+// .field_with_errors {
+// 		@extend .has-error;
+// 		@extend .control-group !optional;
+//   	@extend .error !optional;
+// }
 .video-list-item ,.related-list-item:hover {
 		// color: #333333;
 		color: white;
@@ -78,7 +77,6 @@ label {
 .dashboard-section {
 	margin-top: 30px;
 	height: 120px;
-	@include mini-shadow;
 	padding: 5px;
 	background: #FFFFFF;
 	#dashboard-section-1{
