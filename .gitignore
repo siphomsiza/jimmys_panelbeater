@@ -10,20 +10,10 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
-
-# Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
-.DS_Store
-/public/assets/
 /public/uploads/
 /public/public/*
-config/settings.local.yml
-config/settings/*.local.yml
-config/environments/*.local.yml
-/jpitfiles/Residential.xml
-/jpitfiles/Residential_loading_failure_report.txt
-/jpitfiles/*.xls
-/jpitfiles/*.xml
+/log/*.log
+/tmp
 
-verihub_db_dump_after_seed.sql
+# Ignore Byebug command history file.
+.byebug_history
